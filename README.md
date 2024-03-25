@@ -11,22 +11,22 @@
 ![示例](images/add-Google.png)
 
 ### 4. 建立Android應用程式
-Android 套件名稱在Flutter專案 > ./android/app/build.gradle > defaultConfig > applicationId
+Android 套件名稱在Flutter專案 > ./android/app/build.gradle > defaultConfig > applicationId  
 偵錯簽署憑證這裡可以先跳過
 ![示例](images/create-AndroidAPP.png)
 
 ### 5. 將google-services.json放到Flutter專案 > ./android/app 中
 ![示例](images/download-json.png)
 
-### 6. 在Flutter專案 > ./android/build.gradle > dependencies 下新增【classpath 'com.google.gms:google-services:X.X.X'】
-X.X.X為Firebase導覽上顯示的版本
+### 6. 將FirebaseSDK導入Flutter專案
+./android/build.gradle > dependencies 下新增【classpath 'com.google.gms:google-services:X.X.X'】(X.X.X為Firebase導覽上顯示的版本)  
 ![示例](images/build-gradle1.png)
 
-### 7. 在Flutter專案 > ./android/app/build.gradle > plugin 下新增【id 'com.google.gms.google-services'】。
+./android/app/build.gradle > plugin 下新增【id 'com.google.gms.google-services'】  
+defaultConfig > minSdkVersion 改為 23 以上
 ![示例](images/build-gradle2.png)
-defaultConfig > minSdkVersion 改為 23
 
-### 8. 修改main.dart > main()
+### 7. 修改main.dart > main()
 ```dart
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,12 +42,12 @@ void main() async {
 }
 ```
 
-### 9. Firebase專案中新增SHA金鑰
+### 8. Firebase專案中新增SHA金鑰
 [怎麼取得SHA金鑰](https://github.com/IanWangIITZDAWG/SHA-key)
 
-### 10. Flutter專案新增【google_sign_in】套件
+### 9. Flutter專案新增【google_sign_in】套件
 
-### 11. 開始使用
+### 10. 開始使用
 [使用方法點我](https://firebase.google.com/docs/auth/flutter/federated-auth?hl=zh-tw#google)
 ```dart
 import 'package:google_sign_in/google_sign_in.dart';
